@@ -12,37 +12,37 @@ export default class Store extends Component {
             "list"
         ]
         this.state = {
-            icon: "dashboard_2"
+            iconState: "dashboard_2"
         }
     }
 
     switch = (event) => {
         // console.log(event)
-        let index = this.icons.indexOf(event.target.innerHTML);
-        // console.log(index)
+        let index = this.icons.indexOf(event.target.innerText);
+        // console.log(event)
         if (index === 0) {
             this.setState({
-                icon: "list"
+                iconState: "list"
             })
         } else {
             this.setState({
-                icon: "dashboard_2"
+                iconState: "dashboard_2"
             })
         }
     }
 
     render() {
-        if (this.state.icon === "dashboard_2") {
+        if (this.state.iconState === "dashboard_2") {
             return (
                 <>
-                    <IconSwitch icon={this.state.icon} onSwitch={this.switch} />
+                    <IconSwitch icon={this.state.iconState} onSwitch={this.switch} />
                     <CardsView cards={this.props.products} />
                 </>
             )
-        } else if (this.state.icon === "list") {
+        } else if (this.state.iconState === "list") {
             return (
                 <>
-                    <IconSwitch icon={this.state.icon} onSwitch={this.switch} />
+                    <IconSwitch icon={this.state.iconState} onSwitch={this.switch} />
                     <ListView items={this.props.products} />
                 </>
             )
